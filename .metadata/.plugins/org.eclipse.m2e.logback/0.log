@@ -1487,3 +1487,11 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact antlr:antlr:j
 2024-03-01 16:41:32,165 [Worker-54: ビルド] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Works\Practices\Workspace\03_TUTORIAL_MAVENPROJECT\src\main\resources
 2024-03-01 16:41:32,168 [Worker-54: ビルド] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (MS932 actually) to copy filtered resources, i.e. build is platform dependent!
 2024-03-01 16:41:32,168 [Worker-54: ビルド] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Works\Practices\Workspace\03_TUTORIAL_MAVENPROJECT\src\test\resources
+2024-03-01 17:07:03,449 [Worker-11: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-03-01 17:07:03,696 [Worker-10: クイック Diff の初期化中] WARN  org.eclipse.jgit.util.FS_Win32 - null
+2024-03-01 17:09:43,838 [Worker-3: クイック Diff の初期化中] WARN  org.eclipse.jgit.util.FS_Win32 - null
+2024-03-01 17:09:43,913 [Worker-12: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-03-01 17:54:45,683 [Worker-13: ビルド] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (MS932 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-03-01 17:54:45,701 [Worker-13: ビルド] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Works\Practices\Workspace\03_TUTORIAL_MAVENPROJECT\src\main\resources
+2024-03-01 17:54:45,721 [Worker-13: ビルド] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (MS932 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-03-01 17:54:45,723 [Worker-13: ビルド] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Works\Practices\Workspace\03_TUTORIAL_MAVENPROJECT\src\test\resources
