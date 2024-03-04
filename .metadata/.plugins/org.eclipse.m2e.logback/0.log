@@ -1495,3 +1495,9 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact antlr:antlr:j
 2024-03-01 17:54:45,701 [Worker-13: ビルド] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Works\Practices\Workspace\03_TUTORIAL_MAVENPROJECT\src\main\resources
 2024-03-01 17:54:45,721 [Worker-13: ビルド] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (MS932 actually) to copy filtered resources, i.e. build is platform dependent!
 2024-03-01 17:54:45,723 [Worker-13: ビルド] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Works\Practices\Workspace\03_TUTORIAL_MAVENPROJECT\src\test\resources
+2024-03-04 08:57:57,765 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-03-04 08:57:58,043 [Worker-14: クイック Diff の初期化中] WARN  org.eclipse.jgit.util.FS_Win32 - null
+2024-03-04 13:04:57,190 [Worker-10: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-03-04 13:04:57,369 [Worker-6: クイック Diff の初期化中] WARN  org.eclipse.jgit.util.FS_Win32 - null
+2024-03-04 13:06:18,068 [Worker-9: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-03-04 13:06:18,191 [Worker-1: クイック Diff の初期化中] WARN  org.eclipse.jgit.util.FS_Win32 - null
