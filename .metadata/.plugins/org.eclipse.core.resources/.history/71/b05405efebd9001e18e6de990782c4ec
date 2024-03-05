@@ -1,0 +1,54 @@
+package com.example.test;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.client.RestTemplate;
+
+@Controller
+public class APITestController{
+	
+	@GetMapping("/")
+	public String index(Model model) {
+		return "index";
+	}
+	@PostMapping("/")
+	public String postAPI() {
+		return "redirect:/";
+	}
+	
+	private String callQiitaAPI(String tokenID) throws Exception {
+		
+		RestTemplate rest = new RestTemplate();
+		
+		if(tokenID == null) {
+			tokenID = "f4426d44d33264d0288874837c9fe4536f904c3e";
+		}
+		
+
+		final String endpoint = "https://qiita.com/api/v2/schema";
+		
+		//final String url = 
+		
+		HttpHeaders headers = new HttpHeaders();
+		
+		headers.add("token", tokenID);
+		
+		
+		
+		
+		
+		
+		
+		String json = response.getBody();
+				
+		return decode(json);
+		
+	}
+	
+	
+	
+}
+

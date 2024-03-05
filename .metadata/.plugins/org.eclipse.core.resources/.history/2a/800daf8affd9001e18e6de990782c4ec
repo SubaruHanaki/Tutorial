@@ -1,0 +1,42 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<body>
+	<form id="testAPI" method="POST" enctype="multipart/form-data" action="#" th:action="@{/}">
+		<div>QiitaAPI呼び出し</div>
+		<div>
+		<button id="button_ajax_controller" type="button">Ajaxで呼び出し</button>
+		</div>
+		<div>
+		<button type="submit">内部からAPI呼び出しリダイレクト</button>
+		</div>
+	</form>
+	<div th:if="${data}">
+		<h2 th:text="${data}"/>
+	</div>
+	<div id="result_ajax"></div>
+	
+	
+
+	<!--
+	<div th:if="${message}">
+		<h2 th:text="${message}"/>
+	</div>
+
+	<div>
+		<form method="POST" enctype="multipart/form-data" action="/">
+			<table>
+				<tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+				<tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+			</table>
+		</form>
+	</div>
+
+	<div>
+		<ul>
+			<li th:each="file : ${files}">
+				<a th:href="${file}" th:text="${file}" />
+			</li>
+		</ul>
+	</div>
+	-->
+</body>
+</html>

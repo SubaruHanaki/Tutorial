@@ -1,0 +1,20 @@
+<html xmlns:th="https://www.thymeleaf.org">
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script type="text/javascript" th:src="@{js/ajaxTest.js}"></script>
+	</head>
+<body>
+	<form id="testAPI" method="POST" enctype="multipart/form-data" action="#" th:action="@{/}">
+		<div>QiitaAPI呼び出し</div>
+		<div>
+			<button id="button_ajax_controller" type="button">Ajaxで呼び出し</button>
+		</div>
+		<div>
+			<button type="submit">内部からAPI呼び出しリダイレクト</button>
+		</div>
+	</form>
+	<div th:if="${data}">
+		<h2 id="result_ajax" th:text="${data}"/>
+	</div>
+</body>
+</html>

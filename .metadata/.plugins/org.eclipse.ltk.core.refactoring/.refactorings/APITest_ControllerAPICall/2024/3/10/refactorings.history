@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="リソース名 &apos;APITest_ControllerAPICall/src/main/resources/static/js/ajaxTest&apos; を &apos;ajaxTest.js&apos; に変更します" description="リソース &apos;ajaxTest&apos; の名前変更" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/static/js/ajaxTest" name="ajaxTest.js" stamp="1709538621994" updateReferences="true"/>
+</session>

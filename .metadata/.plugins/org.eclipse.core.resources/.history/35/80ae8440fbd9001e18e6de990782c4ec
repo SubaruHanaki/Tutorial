@@ -1,0 +1,73 @@
+package com.example.test;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
+
+
+@Controller
+public class APITestController{
+	
+	@GetMapping("/")
+	public ModelAndView index(@ModelAttribute("data") String data, ModelAndView mav) {
+		mav.addObject("data", data);
+		mav.setViewName("index");
+		return mav;
+	}
+	
+	@PostMapping("/")
+	public String submit() throws Exception {
+
+		Logger logger = Logger.getLogger("test");
+		
+		logger.log(Level.INFO,"CALLTest");
+		String result = callQiitaAPI(null);
+		logger.log(Level.INFO,result);
+		model.addAttribute("data",result);
+		return "redirect:/";
+	}
+	
+	private String callQiitaAPI(String tokenID) throws Exception {
+		
+		RestTemplate rest = new RestTemplate();
+		
+		if(tokenID == null) {
+			tokenID = "f4426d44d33264d0288874837c9fe4536f904c3e";
+		}
+		
+
+		//final String endpoint = "https://qiita.com/api/v2/schema";
+		
+		final String url = "https://qiita.com/api/v2/items?page=1&per_page=20&query=qiita+user%3AQiita";//"https://qiita.com/api/v2/";
+		/*
+		
+		HttpHeaders headers = new HttpHeaders();
+		
+		headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
+		headers.add("Authorization: Bearer", tokenID);
+		HttpEntity<String> request = new HttpEntity<>(headers);
+		*/
+		
+		//RequestEntity<String
+		ResponseEntity<String> response = rest.exchange(url, HttpMethod.GET,null,String.class);
+				
+		String json = response.getBody();
+				
+		return json;
+		
+	}
+	
+	
+	
+}
+
