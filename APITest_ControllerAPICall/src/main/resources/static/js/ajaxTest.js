@@ -8,6 +8,8 @@ $(function() {
     })
     .done(function(data) {
 		$("#result_message").empty();
+		console.log(data);
+		console.log(data[0].id)
 		$("#result_message").append(`<div>${data}</div>`);  // HTMLを追加
 		$("#result_message").val("");  // 入力欄を空にする
     })

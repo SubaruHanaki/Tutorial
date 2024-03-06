@@ -9,5 +9,9 @@ public class ApiTestControllerApiCallApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ApiTestControllerApiCallApplication.class, args);
 	}
+	
+	public static void test() {
+		
+	}
 
 }

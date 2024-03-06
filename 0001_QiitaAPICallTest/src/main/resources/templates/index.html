@@ -1,0 +1,49 @@
+<html xmlns:th="https://www.thymeleaf.org">
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">		
+		<script type="text/javascript" th:src="@{js/AjaxTest.js}"></script>
+	</head>
+<body>
+	<form id="testAPI" method="POST" enctype="multipart/form-data" action="#" th:action="@{/}">
+		<input name="page" type="number" />
+		<input name="per_page" type="number" />
+		<input name="query" type="text" />
+		<div>QiitaAPI呼び出し</div>
+		<div>
+			<button id="button_ajax_controller" type="button">Ajax</button>
+		</div>
+		<div>
+			<button type="submit">Redirect</button>
+		</div>
+	</form>
+	
+	<div style="display: flex;flex-direction: row;gap:1rem;">
+		<div style="width:50%;">
+			<h4>Ajax出力結果</h4>
+			<div id="controller_result" th:if="${list}">
+				<th:block th:each="data : ${list}">
+					<a th:href="${data.url}" style="color: initial;text-decoration: none;">
+						<div class="card">
+							<div class="card-header">
+								<h3 class="card-title" th:text="${data.title}"></h3>
+								<div class="card-tools">
+									<span class="badge badge-primary">Label</span>
+								</div>
+							</div>
+							<div class="card-body" th:text="|${#strings.substring(data.body,0,30)}...|"></div>
+							<div class="card-footer" th:text="${data.id}"></div>
+						</div>
+					</a>
+				</th:block>
+			</div>
+		</div>
+		<div style="width:50%;">
+			<h4>Redirect出力結果</h4>
+			<div id="ajax_result">
+			</div>
+		</div>
+	</div>
+</body>
+</html>
