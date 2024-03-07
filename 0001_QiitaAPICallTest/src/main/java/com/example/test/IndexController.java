@@ -18,9 +18,8 @@ public class IndexController{
 	
 	@GetMapping("/")
 	public ModelAndView index(@ModelAttribute("form") QiitaForm form, @ModelAttribute("list")ArrayList<QiitaArticleModel> list,  ModelAndView mav) {
-		Logger logger = Logger.getLogger("test");
+		Logger logger = Logger.getLogger("test22");
 		logger.log(Level.INFO,String.valueOf(form.getPage()));
-		
 		
 		mav.addObject("form", form);
 		mav.addObject("list", list);
@@ -30,12 +29,11 @@ public class IndexController{
 	}
 	
 	@PostMapping("/")
-	public String submit(RedirectAttributes redirectAttr) throws Exception {
+	public String submit(@ModelAttribute QiitaForm form, RedirectAttributes redirectAttr) throws Exception {
 		Logger logger = Logger.getLogger("test");
-		logger.log(Level.INFO,"CALLTest");
-		redirectAttr.addFlashAttribute("list",api.callArticle());
-		//redirectAttr.addFlashAttribute("list",api.callArticles(form.getPage(), form.getPer_page(),form.getQuery()));
-		//redirectAttr.addFlashAttribute("form", logger)
+		logger.log(Level.INFO,"CALLTest:"+form.getQuery());
+		redirectAttr.addFlashAttribute("form",form);
+		redirectAttr.addFlashAttribute("list",api.callArticles(form.getPage(),form.getPer_page(),form.getQuery()));
 		return "redirect:/";
 	}
 	

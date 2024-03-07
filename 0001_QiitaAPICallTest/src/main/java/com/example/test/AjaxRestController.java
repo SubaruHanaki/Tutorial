@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,8 +19,13 @@ public class AjaxRestController {
 		return api.callArticle();
 	}
 	
-	@PostMapping("/ajaxpppp")
-	public ArrayList<QiitaArticleModel> submitAjaxParams(@RequestBody QiitaForm form) throws Exception {
+	@ResponseBody
+	@PostMapping("/ajaxparams")
+	public ArrayList<QiitaArticleModel> submitAjaxParams(@RequestBody QiitaForm form) throws Exception {//@RequestBody QiitaForm form
+		//return api.callArticle();
+		
+		/*
+		*/
 		Logger logger = Logger.getLogger("test1");
 		logger.log(Level.INFO,form.getQuery());
 

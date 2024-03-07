@@ -7,19 +7,19 @@
 	</head>
 <body>
 	<div style="margin:1rem;">
-		<form id="testAPI" method="POST" enctype="multipart/form-data" action="#" th:action="@{/}">
+		<form name="testAPIName" id="testAPI" method="POST" enctype="multipart/form-data" action="#" th:action="@{/}">
 			<div style="display: flex;gap:1rem;">
 				<div>
 					<h4>ページ番号</h4>
-					<input name="page" type="number" th:field="*{form.page}" />
+					<input name="page" type="number" th:field="*{form.page}" class="form-control" />
 				</div>
 				<div>
 					<h4>ページ数</h4>
-					<input name="per_page" type="number" th:field="*{form.per_page}" />
+					<input name="per_page" type="number" th:field="*{form.per_page}" class="form-control" />
 				</div>
 				<div>
-					<h4>クエリ</h4>
-					<input name="query" type="text" th:field="*{form.query}" />
+					<h4>検索</h4>
+					<input name="query" type="text" th:field="*{form.query}" class="form-control" />
 				</div>
 			</div>
 			<div style="margin:1rem;">
@@ -44,12 +44,12 @@
 						<a th:href="${data.url}" style="color: initial;text-decoration: none;">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title" th:text="|${#strings.substring(data.title,0,20)}...|"></h3>
+									<h3 class="card-title" th:text="|${#strings.substring(data.title,0,(data.title.length &gt; 20 ? 20 : data.title.length))}...|"></h3>
 									<div class="card-tools">
 										<span class="badge badge-primary">Label</span>
 									</div>
 								</div>
-								<div class="card-body" th:text="|${#strings.substring(data.body,0,30)}...|"></div>
+								<div class="card-body" th:text="|${#strings.substring(data.body,0,(data.body.length &gt; 40 ? 40 : data.body.length))}...|"></div>
 								<div class="card-footer" th:text="${data.id}"></div>
 							</div>
 						</a>
