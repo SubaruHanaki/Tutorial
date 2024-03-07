@@ -17,8 +17,12 @@ public class IndexController{
 	private QiitaAPI api = new QiitaAPI();
 	
 	@GetMapping("/")
-	public ModelAndView index(@ModelAttribute("list")ArrayList<QiitaArticleModel> list,  ModelAndView mav) {
-		//mav.addObject("form", form);
+	public ModelAndView index(@ModelAttribute("form") QiitaForm form, @ModelAttribute("list")ArrayList<QiitaArticleModel> list,  ModelAndView mav) {
+		Logger logger = Logger.getLogger("test");
+		logger.log(Level.INFO,String.valueOf(form.getPage()));
+		
+		
+		mav.addObject("form", form);
 		mav.addObject("list", list);
 		mav.setViewName("index");
 		return mav;
@@ -27,7 +31,6 @@ public class IndexController{
 	
 	@PostMapping("/")
 	public String submit(RedirectAttributes redirectAttr) throws Exception {
-
 		Logger logger = Logger.getLogger("test");
 		logger.log(Level.INFO,"CALLTest");
 		redirectAttr.addFlashAttribute("list",api.callArticle());

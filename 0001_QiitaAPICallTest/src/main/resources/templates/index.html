@@ -6,44 +6,59 @@
 		<script type="text/javascript" th:src="@{js/AjaxTest.js}"></script>
 	</head>
 <body>
-	<form id="testAPI" method="POST" enctype="multipart/form-data" action="#" th:action="@{/}">
-		<input name="page" type="number" />
-		<input name="per_page" type="number" />
-		<input name="query" type="text" />
-		<div>QiitaAPI呼び出し</div>
-		<div>
-			<button id="button_ajax_controller" type="button">Ajax</button>
-		</div>
-		<div>
-			<button type="submit">Redirect</button>
-		</div>
-	</form>
-	
-	<div style="display: flex;flex-direction: row;gap:1rem;">
-		<div style="width:50%;">
-			<h4>Ajax出力結果</h4>
-			<div id="controller_result" th:if="${list}">
-				<th:block th:each="data : ${list}">
-					<a th:href="${data.url}" style="color: initial;text-decoration: none;">
-						<div class="card">
-							<div class="card-header">
-								<h3 class="card-title" th:text="${data.title}"></h3>
-								<div class="card-tools">
-									<span class="badge badge-primary">Label</span>
+	<div style="margin:1rem;">
+		<form id="testAPI" method="POST" enctype="multipart/form-data" action="#" th:action="@{/}">
+			<div style="display: flex;gap:1rem;">
+				<div>
+					<h4>ページ番号</h4>
+					<input name="page" type="number" th:field="*{form.page}" />
+				</div>
+				<div>
+					<h4>ページ数</h4>
+					<input name="per_page" type="number" th:field="*{form.per_page}" />
+				</div>
+				<div>
+					<h4>クエリ</h4>
+					<input name="query" type="text" th:field="*{form.query}" />
+				</div>
+			</div>
+			<div style="margin:1rem;">
+				<div>QiitaAPI呼び出し</div>
+				<div style="display:flex;justify-content:center;gap:1rem;">
+					<button id="button_ajax_controller" type="button" class="btn btn-block btn-primary btn-lg" style="margin-top: 0;">Ajax</button>
+					<button type="submit" class="btn btn-block btn-primary btn-lg" style="margin-top: 0;">Redirect</button>
+				</div>
+			</div>
+		</form>
+		
+		<div style="display: flex;flex-direction: row;gap:1rem;">
+			<div style="width:50%;">
+				<h4>Ajax出力結果</h4>
+				<div id="ajax_result">
+				</div>
+			</div>
+			<div style="width:50%;">
+				<h4>Redirect出力結果</h4>
+				<div id="controller_result" th:if="${list}">
+					<th:block th:each="data : ${list}">
+						<a th:href="${data.url}" style="color: initial;text-decoration: none;">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title" th:text="|${#strings.substring(data.title,0,20)}...|"></h3>
+									<div class="card-tools">
+										<span class="badge badge-primary">Label</span>
+									</div>
 								</div>
+								<div class="card-body" th:text="|${#strings.substring(data.body,0,30)}...|"></div>
+								<div class="card-footer" th:text="${data.id}"></div>
 							</div>
-							<div class="card-body" th:text="|${#strings.substring(data.body,0,30)}...|"></div>
-							<div class="card-footer" th:text="${data.id}"></div>
-						</div>
-					</a>
-				</th:block>
+						</a>
+					</th:block>
+				</div>
+				
 			</div>
 		</div>
-		<div style="width:50%;">
-			<h4>Redirect出力結果</h4>
-			<div id="ajax_result">
-			</div>
-		</div>
+
 	</div>
 </body>
 </html>

@@ -8,12 +8,12 @@ import lombok.Data;
 public class QiitaForm {
 
 	@Range(min = 1)
-	private int page;
+	private int page = 1;
 	
 	@Range(min = 1)
-	private int per_page;
+	private int per_page = 1;
 	
-	private String query;
+	private String query = "";
 	
 	public QiitaForm() {
 		page = 1;

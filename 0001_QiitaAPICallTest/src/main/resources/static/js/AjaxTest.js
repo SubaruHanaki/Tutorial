@@ -5,6 +5,13 @@ $(function() {
     $.ajax({
       url: "/ajax",  // リクエストを送信するURLを指定（action属性のurlを抽出）
       type: "POST",  // HTTPメソッドを指定（デフォルトはGET）
+      /*
+      data:{
+		  "query":"fafasf"
+	  },
+	  dataType: "json"
+	  */
+	  
     })
     .done(function(data) {
 		$("#ajax_result").empty();
@@ -15,7 +22,7 @@ $(function() {
 				<a href="${data.url}" style="color: initial;text-decoration: none;">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title">${d.title}</h3>
+							<h3 class="card-title">${d.title.substring(0,20)}</h3>
 							<div class="card-tools">
 								<span class="badge badge-primary">Label</span>
 							</div>
