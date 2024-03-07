@@ -7,19 +7,32 @@
 	</head>
 <body>
 	<div style="margin:1rem;">
-		<form name="testAPIName" id="testAPI" method="POST" enctype="multipart/form-data" action="#" th:action="@{/}">
+		<form name="testAPIName" id="testAPI" method="POST" enctype="multipart/form-data" action="#" th:action="@{/}" th:object="${form}">
+			<ul>
+				<li th:each="error : ${#fields.detailedErrors()}" class="err"
+					th:text="${error.message}" />
+			</ul>			
 			<div style="display: flex;gap:1rem;">
 				<div>
 					<h4>ページ番号</h4>
-					<input name="page" type="number" th:field="*{form.page}" class="form-control" />
+					<input name="page" type="number" th:field="*{page}" class="form-control" />
+					<!--
+					<div th:if="${#fields.hasErrors('page')}" th:errors="*{form.page}">Page Valid Error</div>
+					-->
 				</div>
 				<div>
 					<h4>ページ数</h4>
-					<input name="per_page" type="number" th:field="*{form.per_page}" class="form-control" />
+					<input name="per_page" type="number" th:field="*{per_page}" class="form-control" />
+					<!--
+					<div th:if="${#fields.hasErrors('per_page')}" th:errors="*{per_page}">PerPage Valid Error</div>
+					-->
 				</div>
 				<div>
 					<h4>検索</h4>
-					<input name="query" type="text" th:field="*{form.query}" class="form-control" />
+					<input name="query" type="text" th:field="*{query}" class="form-control" />
+					<!--
+					<div th:if="${#fields.hasErrors('query')}" th:errors="*{query}">Query Valid Error</div>
+					-->
 				</div>
 			</div>
 			<div style="margin:1rem;">

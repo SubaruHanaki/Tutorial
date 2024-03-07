@@ -22,10 +22,7 @@ public class AjaxRestController {
 	@ResponseBody
 	@PostMapping("/ajaxparams")
 	public ArrayList<QiitaArticleModel> submitAjaxParams(@RequestBody QiitaForm form) throws Exception {//@RequestBody QiitaForm form
-		//return api.callArticle();
-		
-		/*
-		*/
+
 		Logger logger = Logger.getLogger("test1");
 		logger.log(Level.INFO,form.getQuery());
 

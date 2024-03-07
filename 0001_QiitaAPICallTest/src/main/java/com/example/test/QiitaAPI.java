@@ -25,8 +25,10 @@ public class QiitaAPI{
 		if(params != null) {
 	        for (Map.Entry<String, Object> entry : params.entrySet()) {
 	            System.out.println(entry.getKey() + " : " + entry.getValue());
-	            String param = entry.getKey() + "=" + entry.getValue();
-	            paramUrl = paramUrl + (paramUrl.length()>0?"&":"?") + param;
+	            if(entry.getValue() != "") {
+		            String param = entry.getKey() + "=" + entry.getValue();
+		            paramUrl = paramUrl + (paramUrl.length()>0?"&":"?") + param;
+	            }
 	        }
 		}
 		String url = endpoint + "/" + api + paramUrl;//"https://qiita.com/api/v2/items?page=1&per_page=20&query=qiita+user%3AQiita";
@@ -53,8 +55,8 @@ public class QiitaAPI{
 	}
 	
 	
-	public ArrayList<QiitaArticleModel>  callArticles(int page, int per_page, String query) throws Exception{
-		final String api = "items?page="+page+"&per_page="+per_page+"&query=qiita+user%3AQiita";
+	public ArrayList<QiitaArticleModel>  callArticles(int page, int per_page, String query){
+		final String api = "items";//"items?page="+page+"&per_page="+per_page+"&query=qiita+user%3AQiita";
 		Map<String,Object> params = new HashMap<String, Object>(){
 			{
 				put("page",page);
@@ -63,8 +65,14 @@ public class QiitaAPI{
 			}
 		};
 		
-		String json = call(api, params);
-		return new ObjectMapper().readValue(json, new TypeReference<ArrayList<QiitaArticleModel>>() {});
+		String json;
+		try {
+			json = call(api, params);
+			return new ObjectMapper().readValue(json, new TypeReference<ArrayList<QiitaArticleModel>>() {});
+		} catch (Exception e) {
+			// TODO 自動生成された catch ブロック
+			return new ArrayList<QiitaArticleModel>() {};
+		}
 	}
 	
 

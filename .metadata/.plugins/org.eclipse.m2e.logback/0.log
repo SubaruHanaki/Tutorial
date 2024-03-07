@@ -1507,3 +1507,7 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact antlr:antlr:j
 2024-03-05 16:59:15,211 [Worker-15: クイック Diff の初期化中] WARN  org.eclipse.jgit.util.FS_Win32 - null
 2024-03-06 09:29:45,418 [Worker-11: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2024-03-06 09:29:45,567 [Worker-5: クイック Diff の初期化中] WARN  org.eclipse.jgit.util.FS_Win32 - null
+2024-03-07 14:27:32,356 [Worker-11: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-03-07 14:27:32,542 [Worker-16: クイック Diff の初期化中] WARN  org.eclipse.jgit.util.FS_Win32 - null
+2024-03-08 08:45:35,679 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-03-08 08:45:35,910 [Worker-16: クイック Diff の初期化中] WARN  org.eclipse.jgit.util.FS_Win32 - null
