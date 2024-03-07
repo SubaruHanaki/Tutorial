@@ -6,8 +6,6 @@ $(function() {
     $.ajax({
       url: "/ajaxparams",  // リクエストを送信するURLを指定（action属性のurlを抽出）
       type: "POST",  // HTTPメソッドを指定（デフォルトはGET）
-      /*
-	  */
       data:JSON.stringify({
 		  "page":parseInt($("#page").val()),
 		  "per_page":parseInt($("#per_page").val()),
