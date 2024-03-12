@@ -8,18 +8,18 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="M_USER")
+@Table(name="m_user")
 public class UserEntity {
 	@Id
-    @Column(name="UserId")
+    @Column(name="user_id")
     private String id;
 	
-	@Column(name="Password")
+	@Column(name="password")
 	private String password;
 	
-	@Column(name="RoleId")
+	@Column(name="role_id")
 	private String roleId;
 	
-	@Column(name="UserName")
-	private String username;
+	@Column(name="user_name")
+	private String userName;
 }

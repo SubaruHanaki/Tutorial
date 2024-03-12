@@ -8,12 +8,12 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="M_ROLE")
+@Table(name="m_role")
 public class RoleEntity {
 	@Id
-    @Column(name="RoleId")
+    @Column(name="role_id")
     private String id;
 	
-	@Column(name="RoleName")
+	@Column(name="role_name")
 	private String roleName;
 }

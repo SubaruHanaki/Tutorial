@@ -8,13 +8,13 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="M_PERMISSION")
+@Table(name="m_permission")
 public class PermissionEntity {
 	@Id
-    @Column(name="PermissionId")
+    @Column(name="permission_id")
     private String id;
 	
-	@Column(name="PermissionName")
+	@Column(name="permission_name")
 	private String permissionName;
 
 }

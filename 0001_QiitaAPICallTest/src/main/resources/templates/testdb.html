@@ -3,10 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">		
 </head>
 <body>
-	<div id="controller_result" th:if="${users}">
-		<th:block th:each="data : ${users}">
+	<div id="controller_result" th:if="${users}" style="display:grid;grid-column: auto;">
+		<thlthck th:each="data : ${users}">
 			<div class="card">
 				<div class="card-header">
 					<h3 class="card-title" th:text="${data.id}"></h3>
@@ -17,7 +20,7 @@
 				<div class="card-body" th:text="${data.userName}"></div>
 				<div class="card-footer" th:text="${data.roleId}"></div>
 			</div>
-		</th:block>
+		</thlthck>
 	</div>
 
 </body>
