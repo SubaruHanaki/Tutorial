@@ -5,6 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
@@ -20,65 +21,40 @@ public class IndexController{
 	private QiitaAPI api = new QiitaAPI();
 	
 	@GetMapping("/")
-	public ModelAndView index(@ModelAttribute("form") @Validated QiitaForm form, @ModelAttribute("list")ArrayList<QiitaArticleModel> list,  ModelAndView mav) {
-		/*
-		try {
-			Logger logger = Logger.getLogger("test22");
-			logger.log(Level.INFO,String.valueOf(form.getPage()));
-			mav.addObject("form", form);
-			mav.addObject("list", list);
-			mav.setViewName("index");
-			return mav;
-			
-		}catch(Exception e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
-		*/
+	public String index(Model model,ModelAndView mav) {
+		Logger logger = Logger.getLogger("index");
+		logger.log(Level.INFO,"");
 		
-		Logger logger = Logger.getLogger("test22");
-		logger.log(Level.INFO,String.valueOf(form.getPage()));
-		mav.addObject("form", form);
-		mav.addObject("list", list);
-		mav.setViewName("index");
-		return mav;
-	}
-	@PostMapping("/")
-	public ModelAndView submit(@ModelAttribute @Validated QiitaForm form, BindingResult bindingResult, RedirectAttributes redirectAttr){
-		try {
-			Logger logger = Logger.getLogger("test");
-			logger.log(Level.INFO,"CALLTest:"+form.getQuery());
-			
-			if(bindingResult.hasErrors()) {
-			    for (ObjectError error : bindingResult.getAllErrors()) {
-					logger.log(Level.INFO,error.getDefaultMessage());
-			    }
-				redirectAttr.addFlashAttribute("form",form);
-				return new ModelAndView("redirect:/");
-			}
-			redirectAttr.addFlashAttribute("form",form);
-			redirectAttr.addFlashAttribute("list",api.callArticles(form.getPage(),form.getPer_page(),form.getQuery()));
-		} catch (Exception e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
+		//Modelに"form"が存在しない時だけ、下記の処理を実行
+		if (!model.containsAttribute("form")) {
+			model.addAttribute("form", new QiitaForm());
 		}
-		return new ModelAndView("redirect:/");
+		//Modelに"list"が存在しない時だけ、下記の処理を実行
+		if (!model.containsAttribute("list")) {
+			model.addAttribute("list", new ArrayList<QiitaArticleModel>());
+		}
+		
+
+		return "index";
+		
 	}
-	/*
 	@PostMapping("/")
 	public String submit(@ModelAttribute @Validated QiitaForm form, BindingResult bindingResult, RedirectAttributes redirectAttr){
 		try {
 			Logger logger = Logger.getLogger("test");
-			logger.log(Level.INFO,"CALLTest:"+form.getQuery());
+			//logger.log(Level.INFO,"CALLTest:"+form.getQuery());
 			
+		    redirectAttr.addFlashAttribute("form",form);
+		    
 			if(bindingResult.hasErrors()) {
 			    for (ObjectError error : bindingResult.getAllErrors()) {
 					logger.log(Level.INFO,error.getDefaultMessage());
-			    }				
-				redirectAttr.addFlashAttribute("form",form);
+			    }
+			    //RedirectAttributeでBindingResult, 対象のModelAttributeをリダイレクト先に渡す
+			    redirectAttr.addFlashAttribute("org.springframework.validation.BindingResult.form", bindingResult);
 				return "redirect:/";
 			}
-			redirectAttr.addFlashAttribute("form",form);
+
 			redirectAttr.addFlashAttribute("list",api.callArticles(form.getPage(),form.getPer_page(),form.getQuery()));
 		} catch (Exception e) {
 			// TODO 自動生成された catch ブロック
@@ -86,7 +62,4 @@ public class IndexController{
 		}
 		return "redirect:/";
 	}
-	*/
-	
-	
 }

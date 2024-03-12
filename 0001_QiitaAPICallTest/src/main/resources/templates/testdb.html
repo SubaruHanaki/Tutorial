@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="controller_result" th:if="${users}">
+		<th:block th:each="data : ${users}">
+			<div class="card">
+				<div class="card-header">
+					<h3 class="card-title" th:text="${data.id}"></h3>
+					<div class="card-tools">
+						<span class="badge badge-primary">Label</span>
+					</div>
+				</div>
+				<div class="card-body" th:text="${data.userName}"></div>
+				<div class="card-footer" th:text="${data.roleId}"></div>
+			</div>
+		</th:block>
+	</div>
+
+</body>
+</html>
