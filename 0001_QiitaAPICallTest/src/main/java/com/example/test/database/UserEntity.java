@@ -10,6 +10,7 @@ import lombok.Data;
 @Data
 @Table(name="m_user")
 public class UserEntity {
+	
 	@Id
     @Column(name="user_id")
     private String id;
@@ -23,3 +24,4 @@ public class UserEntity {
 	@Column(name="user_name")
 	private String userName;
 }
+

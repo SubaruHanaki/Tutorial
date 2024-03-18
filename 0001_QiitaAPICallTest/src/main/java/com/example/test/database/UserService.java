@@ -14,5 +14,5 @@ public class UserService {
 	public List<UserEntity> SearchAll(){
 		return repository.findAll();
 	}
-
+	
 }
