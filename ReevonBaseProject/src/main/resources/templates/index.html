@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/layout}">
+	<head>
+		<script type="text/javascript" th:src="@{js/AjaxTest.js}"></script>
+		<title>content1</title>
+		<meta name="keywords" content="content1" />
+		<meta name="description" content="content1" />
+		<meta th:name="_csrf" th:content="${_csrf.token}">
+		<meta th:name="_csrf_header" th:content="${_csrf.headerName}">
+	</head>
+	<!--/* (2) */-->
+	<body>
+	    <!-- (3)共通部品を呼び出す -->
+		<div style="margin:1rem;" layout:fragment="~{body}">
+			<form name="testAPIName" id="testAPI" method="POST" enctype="multipart/form-data" action="#" th:action="@{/}" th:object="${form}">
+				<!--
+				 <input
+				    type="hidden"
+				    th:name="${_csrf.parameterName}"
+				    th:value="${_csrf.token}"
+				  />
+				  -->
+				<div style="display: flex;gap:1rem;">
+					<div>
+						<h4>ページ番号</h4>
+						<input name="page" type="number" th:field="*{page}" class="form-control" />
+						<div th:if="${#fields.hasErrors('page')}" th:errors="*{page}">Page Valid Error</div>
+						<div th:text="*{page}"></div>
+					</div>
+					<div>
+						<h4>ページ数</h4>
+						<input name="per_page" type="number" th:field="*{per_page}" class="form-control" />
+						<div th:if="${#fields.hasErrors('per_page')}" th:errors="*{per_page}">PerPage Valid Error</div>
+					</div>
+					<div>
+						<h4>検索</h4>
+						<input name="query" type="text" th:field="*{query}" class="form-control" />
+						<div th:if="${#fields.hasErrors('query')}" th:errors="*{query}">Query Valid Error</div>
+						</div>
+				</div>
+				<div style="margin:1rem;">
+					<div>QiitaAPI呼び出し</div>
+					<div style="display:flex;justify-content:center;gap:1rem;">
+						<button id="button_ajax_controller" type="button" class="btn btn-block btn-primary btn-lg" style="margin-top: 0;">Ajax</button>
+						<button type="submit" class="btn btn-block btn-primary btn-lg" style="margin-top: 0;">Redirect</button>
+					</div>
+				</div>
+			</form>
+			
+		
+			<div style="display: flex;flex-direction: row;gap:1rem;">
+				<div style="width:50%;">
+					<h4>Ajax出力結果</h4>
+					<div id="ajax_result">
+					</div>
+				</div>
+				<div style="width:50%;">
+					<h4>Redirect出力結果</h4>
+					<div id="controller_result" th:if="${list}">
+						<th:block th:each="data : ${list}">
+							<a th:href="${data.url}" style="color: initial;text-decoration: none;">
+								<div class="card">
+									<div class="card-header">
+										<h3 class="card-title" th:text="|${#strings.substring(data.title,0,(data.title.length &gt; 20 ? 20 : data.title.length))}...|"></h3>
+										<div class="card-tools">
+											<span class="badge badge-primary">Label</span>
+										</div>
+									</div>
+									<div class="card-body" th:text="|${#strings.substring(data.body,0,(data.body.length &gt; 40 ? 40 : data.body.length))}...|"></div>
+									<div class="card-footer" th:text="${data.id}"></div>
+								</div>
+							</a>
+						</th:block>
+					</div>
+					
+				</div>
+			</div>
+		
+		</div>
+	</body>
+</html>

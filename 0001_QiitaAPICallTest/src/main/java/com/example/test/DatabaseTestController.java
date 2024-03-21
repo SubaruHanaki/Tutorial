@@ -29,6 +29,8 @@ public class DatabaseTestController {
 
 		model.addAttribute("users", userService.SearchAll());
 		model.addAttribute("roles", roleService.SearchAll());
+		/*
+		*/
 
 		return "testdb";
 	}
@@ -37,7 +39,7 @@ public class DatabaseTestController {
 	public String submit(@ModelAttribute @Validated QiitaForm form, BindingResult bindingResult, RedirectAttributes redirectAttr) {
 		
 		
-		return "testdb";
+		return "redirect:/database";//"testdb";
 	}
 
 }

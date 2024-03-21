@@ -12,30 +12,26 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class FormController {
 	
-	private final String pageName = "form";
-	private final String formName = "form";
-	private final String listName = "list";
-	
 	@GetMapping("/form")
 	public String index(Model model) {
 		
-		if(!model.containsAttribute(formName)) {
-			model.addAttribute(formName, new InputForm());
+		if(!model.containsAttribute("form")) {
+			model.addAttribute("form", new InputForm());
 		}
 
-		if(!model.containsAttribute(listName)) {
-			model.addAttribute(listName, new ArrayList<InputForm>());
+		if(!model.containsAttribute("list")) {
+			model.addAttribute("list", new ArrayList<InputForm>());
 		}
-		return pageName;
+		return "form";
 	}
 	
 	@PostMapping("/form")
-	public String add(@ModelAttribute(formName) InputForm form, @ModelAttribute(listName) ArrayList<InputForm> list, RedirectAttributes redirectAttr) {
-		redirectAttr.addFlashAttribute(formName, form);
+	public String add(@ModelAttribute("form") InputForm form, @ModelAttribute("list") ArrayList<InputForm> list, RedirectAttributes redirectAttr) {
+		redirectAttr.addFlashAttribute("form", form);
 		
 		list.add(form);
-		redirectAttr.addFlashAttribute(listName, list);
-		return String.join("redirect:/", pageName);
+		redirectAttr.addFlashAttribute("list", list);
+		return String.join("redirect:/", "form");
 	}
 	
 

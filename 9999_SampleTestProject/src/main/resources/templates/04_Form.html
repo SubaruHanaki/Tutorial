@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>InputForm</title>
+	</head>
+	<body>
+		<div style="margin:1rem;">
+			<form name="testAPIName" id="testAPI" method="POST" enctype="multipart/form-data" action="#" th:action="@{/}" th:object="${form}">
+				<div style="display: flex;gap:1rem;">
+					<div>
+						<h4>ページ番号</h4>
+						<input name="page" type="number" th:field="*{page}" class="form-control" />
+						<div th:if="${#fields.hasErrors('page')}" th:errors="*{page}">Page Valid Error</div>
+						<div th:text="*{page}"></div>
+					</div>
+					<div>
+						<h4>ページ数</h4>
+						<input name="per_page" type="number" th:field="*{per_page}" class="form-control" />
+						<div th:if="${#fields.hasErrors('per_page')}" th:errors="*{per_page}">PerPage Valid Error</div>
+					</div>
+					<div>
+						<h4>検索</h4>
+						<input name="query" type="text" th:field="*{query}" class="form-control" />
+						<div th:if="${#fields.hasErrors('query')}" th:errors="*{query}">Query Valid Error</div>
+						</div>
+				</div>
+				<div style="margin:1rem;">
+					<div>QiitaAPI呼び出し</div>
+					<div style="display:flex;justify-content:center;gap:1rem;">
+						<button id="button_ajax_controller" type="button" class="btn btn-block btn-primary btn-lg" style="margin-top: 0;">Ajax</button>
+						<button type="submit" class="btn btn-block btn-primary btn-lg" style="margin-top: 0;">Redirect</button>
+					</div>
+				</div>
+			</form>
+			<th:block th:if="${list}">
+				<div th:each="data : ${list}">
+					
+				</div>
+			</th:block>
+		</div>
+	</body>
+</html>
