@@ -1517,3 +1517,20 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact antlr:antlr:j
 2024-03-13 09:11:18,254 [Worker-16: クイック Diff の初期化中] WARN  org.eclipse.jgit.util.FS - Cannot run program "\usr\bin\git" (in directory "\usr\bin"): CreateProcess error=2, 指定されたファイルが見つかりません。
 2024-03-15 09:15:19,553 [Worker-14: クイック Diff の初期化中] WARN  org.eclipse.jgit.util.FS - Cannot run program "\usr\bin\git" (in directory "\usr\bin"): CreateProcess error=2, 指定されたファイルが見つかりません。
 2024-03-15 09:15:19,641 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-03-22 08:18:19,134 [Worker-11: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-03-22 08:18:24,968 [Worker-5: クイック Diff の初期化中] WARN  org.eclipse.jgit.util.FS - Cannot run program "\usr\bin\git" (in directory "\usr\bin"): CreateProcess error=2, 指定されたファイルが見つかりません。
+2024-03-22 08:55:34,128 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-03-22 08:55:41,562 [Worker-4: 装飾計算] WARN  org.eclipse.jgit.util.FS - Cannot run program "\usr\bin\git" (in directory "\usr\bin"): CreateProcess error=2, 指定されたファイルが見つかりません。
+2024-03-22 09:01:29,421 [Worker-14: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-03-22 09:01:34,803 [Worker-20: クイック Diff の初期化中] WARN  org.eclipse.jgit.util.FS - Cannot run program "\usr\bin\git" (in directory "\usr\bin"): CreateProcess error=2, 指定されたファイルが見つかりません。
+2024-03-22 09:01:49,181 [Worker-36: ビルド] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (MS932 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-03-22 09:01:49,182 [Worker-36: ビルド] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Works\Practices\Workspace\03_TUTORIAL_MAVENPROJECT\src\main\resources
+2024-03-22 09:01:49,184 [Worker-36: ビルド] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (MS932 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-03-22 09:01:49,185 [Worker-36: ビルド] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Works\Practices\Workspace\03_TUTORIAL_MAVENPROJECT\src\test\resources
+2024-03-22 09:01:51,043 [Worker-36: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2024-03-22 09:01:51,044 [Worker-36: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2024-03-22 09:01:51,047 [Worker-36: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2024-03-22 09:01:51,061 [Worker-36: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2024-03-22 09:01:51,065 [Worker-36: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2024-03-22 09:01:51,065 [Worker-36: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2024-03-22 09:01:51,065 [Worker-36: ビルド] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Works\Practices\Workspace\quoters-master\src\test\resources

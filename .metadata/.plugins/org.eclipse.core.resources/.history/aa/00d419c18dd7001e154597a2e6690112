@@ -1,7 +1,0 @@
-package com.example.tutorial01;
-
-public record Greeding(long id, String content) {
-	
-}
-
-
