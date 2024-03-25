@@ -18,7 +18,7 @@ ALTER TABLE IF EXISTS test_schema.m_user
 -- 権限追加
 GRANT ALL PRIVILEGES ON test_schema.m_user TO postgres;
 
--- サンプルレコード作成
+-- サンプルレコード作成 passwordはすべて「test1」
 INSERT INTO test_schema.m_user(user_id,password,role_id,user_name) VALUES('M0001', '$2a$08$3V2MZJSnNnS0kcf2beuK2eQsdCTM7qwpIoK/PQJ/ApeMOtuZe2KUK', 'R0001', 'User1');
 INSERT INTO test_schema.m_user(user_id,password,role_id,user_name) VALUES('M0002', '$2a$08$3V2MZJSnNnS0kcf2beuK2eQsdCTM7qwpIoK/PQJ/ApeMOtuZe2KUK', 'R0002', 'User2');
 INSERT INTO test_schema.m_user(user_id,password,role_id,user_name) VALUES('M0003', '$2a$08$3V2MZJSnNnS0kcf2beuK2eQsdCTM7qwpIoK/PQJ/ApeMOtuZe2KUK', 'R0003', 'User3');
