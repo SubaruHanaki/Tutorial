@@ -1,0 +1,7 @@
+# PostgreSQLをDockerで永続化起動
+
+現在のフォルダの./docker-compose直下で下記のコマンド実行
+
+docker-compose up
+
+※のポートが使用されていないことを確認してください。

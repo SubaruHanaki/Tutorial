@@ -1,0 +1,24 @@
+
+# SpringBootプロジェクト直下にてターミナルで実行
+
+## ビルド処理
+docker build --build-arg JAR_FILE=build/libs/*.jar -t test_spring_boot . --no-cache
+
+## Docker実行処理
+docker run --network docker-compose_postgres_network --name test_spring_boot_web -p 8080:8080 -d test_spring_boot
+
+## 実行確認
+localhost:8080を開き、ログイン画面が出てるか確認
+
+username -> User1
+
+password -> test1
+
+でトップ画面へ遷移
+
+username -> User2
+
+password -> test1
+
+の場合は、ロール権限でのアクセス不許可になっているためエラーが出る。
+

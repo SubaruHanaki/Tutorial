@@ -1,0 +1,11 @@
+:imagesdir: ./adoc
+
+# プロジェクトをビルドしてjarファイルを出力する方法
+
+eclipse内のGradleタスクから対象のプロジェクト→「build」→「bootJar」を実行
+
+成功するとプロジェクトエクスプローラのプロジェクト内の「build」→「libs」内にjarファイルができる
+
+image::project_build01.png[]
+
+image::project_build02.png[]
