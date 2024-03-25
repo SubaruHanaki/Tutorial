@@ -1,0 +1,8 @@
+
+# SpringBootプロジェクト直下にて実行
+
+## ビルド処理
+docker build --build-arg JAR_FILE=build/libs/*.jar -t test_spring_boot . --no-cache
+
+## Docker実行処理
+docker run --network docker-compose_postgres_network --name test_spring_boot_web -p 8080:8080 -d test_spring_boot
